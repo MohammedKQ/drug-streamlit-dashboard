@@ -5,7 +5,12 @@ import matplotlib.pyplot as plt
 # -----------------------------
 # Load Data
 # -----------------------------
-df = pd.read_csv(r"C:\Users\malbu\test\drug\app\drug200.csv")
+import os
+
+BASE_DIR = os.path.dirname(__file__)
+csv_path = os.path.join(BASE_DIR, "drug200.csv")
+
+df = pd.read_csv(csv_path)
 
 st.set_page_config(page_title="Drug Dataset Dashboard", layout="wide")
 
@@ -88,3 +93,4 @@ st.pyplot(fig)
 # -----------------------------
 with st.expander("Show Raw Data"):
     st.dataframe(df)
+
